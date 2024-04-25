@@ -4,6 +4,7 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style>
 
@@ -27,7 +28,7 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="./images/logosm.png"  width="50" height="50">
+                    <img src="/images/logosm.png"  width="50" height="50">
                 </a>
             </div>
 
@@ -41,7 +42,7 @@
         </nav>
         <div class="flex flex-col justify-center items-center text-center">
         <h1 class="text-4xl title">
-            <img src="./images/logomed.png" width="350" height="350">
+            <img src="/images/logomed.png" width="350" height="350">
         </h1>
         <h2 class="inline-flex mt-2 mb-6">By Jose Pablo</h2>
 
@@ -56,7 +57,7 @@
             <h5 class="text-3xl">Todas las noticias que te interesan!</h5>
             <div class="flex justify-center mt-3 mb-3">
                 <a href="/">
-                    <img src="./images/logosm.png" alt="TRSB Logo" width="50" height="50">
+                    <img src="/images/logosm.png" alt="TRSB Logo" width="50" height="50">
                 </a>
             </div>
             <p class="text-sm mt-3">No te llenaremos el correo con basura. No somos malos!</p>
