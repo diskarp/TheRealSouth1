@@ -9,8 +9,12 @@
                         <div class="mt-8 flex flex-col justify-between">
                             <header>
                                 <div class="space-x-2">
-
-
+                                    <a href="{{ route('posts.index', ['category' => $post->category->slug]) }}"
+                                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
+                                        style="font-size: 10px">{{ $post->category->name }}</a>
+                                    <a href="#"
+                                        class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
+                                        style="font-size: 10px">Updates</a>
                                 </div>
 
                                 <div class="mt-4">
@@ -34,7 +38,7 @@
 
                             <footer class="flex justify-between items-center mt-8">
                                 <div class="flex items-center text-sm">
-                                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+
                                     <div class="ml-3">
                                         <h5 class="font-bold">
                                         <a href="/authors/{{$post->author->username}}">{{$post->author->name}}</a>

@@ -34,9 +34,16 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($categoryName)
     {
-        //
+        // Obtener la categoría por su nombre
+        $category = Category::where('name', $categoryName)->firstOrFail();
+
+        // Obtener los posts asociados a esta categoría
+        $posts = $category->posts;
+
+        // Pasar la categoría y los posts a la vista
+        return view('categories.show', compact('category', 'posts'));
     }
 
     /**
