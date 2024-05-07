@@ -25,7 +25,7 @@ class PostController extends Controller
         // Filtrar por otros criterios como la búsqueda o el autor
         $query->filter($request->only(['search', 'author']));
 
-        $posts = $query->paginate(4)->withQueryString();
+        $posts = $query->paginate(6)->withQueryString();
 
         return view('posts.index', compact('posts'));
     }
