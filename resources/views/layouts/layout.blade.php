@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <style>
 
     .title {
@@ -67,10 +68,40 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Página principal</a>
+            <div class="mt-8 md:mt-0 flex items-center">
 
-                <a href="#footer" class="buttoncolor ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+
+                @auth
+                <x-dropdown2>
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase">Welcome, {{auth()->user()->name}}!</button>
+                    </x-slot>
+
+                    @if (auth()->user()->username == 'josepablillo28')
+                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')" >Dashboard</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+
+                    @endif
+
+
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Log Out</x-dropdown-item>
+
+                    <form id="logout-form" action="/logout" method="post" class="hidden">
+
+                        @csrf
+
+                    </form>
+                </x-dropdown2>
+
+
+
+
+                @else
+                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+
+                @endauth
+                <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
                 </a>
             </div>
@@ -141,7 +172,7 @@
         </footer>
     </section>
     <a href="#head" id="scrollTopButton" class="scroll-top-button">Subir</a>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
