@@ -7,20 +7,32 @@
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style>
-
     .title {
-
         padding: 20px;
         position: relative;
         z-index: 2;
     }
-
-    .colorss{
+    .colorss {
         background: linear-gradient(to right, #8469f8, #ffffff);
     }
-
-    .buttoncolor{
+    .buttoncolor {
         background: linear-gradient(to right, #8c52ff, #1bdaff);
+    }
+    .scroll-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background: linear-gradient(to right, #8c52ff, #1bdaff);
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    text-decoration: none;
+    display: none; /* Oculta el botón por defecto */
+    transition: background-color 0.3s; /* Agrega una transición suave */
+}
+    .scroll-top-button.show {
+        display: block;
     }
 </style>
 <body style="font-family: Open Sans, sans-serif">
@@ -68,7 +80,7 @@
                     <form method="POST" action="#" class="lg:flex text-sm">
                         <div class="lg:py-3 lg:px-5 flex items-center">
                             <label for="email" class="hidden lg:inline-block">
-                                <img src="./images/mailbox-icon.svg" alt="mailbox letter">
+                                <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
 
                             <input id="email" type="text" placeholder="Your email address"
@@ -78,11 +90,67 @@
                         <button type="submit"
                                 class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                         >
-                            Subscribe
+                            Subscribete!
                         </button>
+
+
                     </form>
                 </div>
             </div>
         </footer>
-    </section>
+        <a href="#head" id="scrollTopButton" class="scroll-top-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18" />
+              </svg>
+
+        </a>
+
+    <a href="#head" id="scrollTopButton" class="scroll-top-button">Subir</a>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selecciona todos los enlaces internos que comienzan con #
+        var links = document.querySelectorAll('a[href^="#"]');
+
+        // Agrega un listener de clic a cada enlace
+        links.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                // Previene el comportamiento predeterminado del enlace
+                event.preventDefault();
+
+                // Obtiene el objetivo del enlace (el elemento al que se está enlazando)
+                var targetId = this.getAttribute('href').substring(1);
+                var targetElement = document.getElementById(targetId);
+
+                // Realiza el desplazamiento suave hasta el elemento objetivo
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var scrollTopButton = document.getElementById('scrollTopButton');
+
+    // Muestra u oculta el botón flotante en función de la posición de desplazamiento
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            scrollTopButton.classList.add('show');
+        } else {
+            scrollTopButton.classList.remove('show');
+        }
+    });
+
+    // Vuelve al inicio de la página cuando se hace clic en el botón
+    scrollTopButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+</body>
+

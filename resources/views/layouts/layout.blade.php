@@ -26,7 +26,13 @@
     }
 
     .colorss{
-        background: linear-gradient(to right, #8469f8, #ffffff);
+        background: linear-gradient(to right, #8469f8, #b296ff);
+    }
+
+    .grey{
+        background: black;
+        width: 100%;
+        height: 33px;
     }
 
     .buttoncolor{
@@ -37,7 +43,7 @@
     bottom: 20px;
     right: 20px;
     z-index: 999;
-    background-color: #007bff;
+    background: linear-gradient(to right, #8c52ff, #1bdaff);
     color: #fff;
     padding: 10px;
     border-radius: 50%; /* Hace que el botón sea redondo */
@@ -58,11 +64,69 @@
 .scroll-top-button i {
     font-size: 20px;
 }
+#banner {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 100%;
+            z-index: 9999;
+            padding: 10px 20px;
+
+            animation: moveRight 20s linear infinite; /* Ajusta la duración y la velocidad de la animación según sea necesario */
+        }
+
+
+        /* Estilos para los enlaces del banner */
+        #bannerContent a {
+    display: flex;
+    color: white; /* Color definido en las letras */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+        #bannerContent a:hover {
+            color: #000000; /* Cambia el color al pasar el mouse sobre el enlace */
+        }
+
+        /* Animación para mover el banner de izquierda a derecha */
+        @keyframes moveRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(calc(100% - 50px)); /* Movimiento hacia la derecha */
+    }
+}
 </style>
 <body style="font-family: Open Sans, sans-serif">
+<div class="grey">
+
+</div>
     <header class=" text-center  py-16 px-10  colorss" id="head">
+
+        <div id="banner">
+
+            <div id="bannerContent" class="flex justify-between">
+
+                @php
+                    use App\Models\Post;
+
+                    // Obtener los últimos 6 posts ordenados por fecha de creación descendente
+                    $latestPosts = Post::latest()->take(6)->get();
+                @endphp
+
+                @foreach($latestPosts as $post)
+                <a href="/posts/{{$post->slug}}" class="text-sm font-semibold hover:underline"> | {{ $post->title }} | </a>
+                @endforeach
+
+            </div>
+
+        </div>
+
         <nav class="md:flex md:justify-between md:items-center">
+
             <div>
+
                 <a href="/">
                     <img src="./images/logosm.png" alt="TRSB Logo" width="50" height="50">
                 </a>
@@ -112,26 +176,46 @@
             <img src="./images/logomed.png" alt="TRSB Logo" width="350" height="350">
         </a>
         </h1>
-        <h2 class="inline-flex mt-2 mb-6">By Jose Pablo</h2>
+
         <div class="flex mt-6">
             <a href="{{ route('posts.index', ['category' => 'tecnologia']) }}" class="buttoncolor flex items-center rounded-full text-white uppercase py-3 px-6 mr-6 ml-6">
-                Tecnología
-                <img src="./images/tech-icon.png" class="h-6 w-6 ml-2" alt="Icono de mando de videojuegos">
+                <span class="mr-2">Tecnología</span>
+                <svg class="h-6 w-6 text-gray-100" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="3" y1="10" x2="3" y2="16" />
+                    <line x1="21" y1="10" x2="21" y2="16" />
+                    <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
+                    <line x1="8" y1="3" x2="9" y2="5" />
+                    <line x1="16" y1="3" x2="15" y2="5" />
+                    <line x1="9" y1="18" x2="9" y2="21" />
+                    <line x1="15" y1="18" x2="15" y2="21" />
+                </svg>
             </a>
             <a href="{{ route('posts.index', ['category' => 'videojuegos']) }}" class="buttoncolor flex items-center rounded-full text-white uppercase py-3 px-6 mr-6 ml-6">
-                Videojuegos
-                <img src="./images/gamepad-icon.png" class="h-6 w-6 ml-2" alt="Icono de mando de videojuegos">
+                <span class="mr-2">Videojuegos</span>
+                <svg class="h-8 w-8 text-gray-100"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="2" y="6" width="20" height="12" rx="2" />  <path d="M6 12h4m-2 -2v4" />
+                    <line x1="15" y1="11" x2="15" y2="11.01" />  <line x1="18" y1="13" x2="18" y2="13.01" /></svg>
             </a>
 
             <a href="{{ route('posts.index', ['category' => 'actualidad']) }}" class="buttoncolor flex items-center rounded-full text-white uppercase py-3 px-6 mr-6 ml-6">
-                Actualidad
-                <img src="./images/newspaper-icon.png" class="h-6 w-6 ml-2" alt="Icono de mando de videojuegos">
+                <span class="mr-2">Actualidad</span>
+                <svg class="h-8 w-8 text-gray-100"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                  </svg>
+
             </a>
         </div>
 
 
+
+
+
     </div>
+
     </header>
+
+
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
         @yield('content')
     </main>
@@ -158,6 +242,12 @@
                             <input id="email" type="text" placeholder="Your email address"
                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         </div>
+
+                        <button type="submit"
+                        class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
+                >
+                    Subscribete!
+                </button>
 
                         <a href="#head" id="scrollTopButton" class="scroll-top-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -218,4 +308,5 @@
     });
 });
 </script>
+
 

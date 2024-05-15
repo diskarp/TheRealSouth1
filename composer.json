@@ -6,7 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "firebase/php-jwt": "^6.10",
         "kreait/firebase-php": "^7.10",
+        "kreait/laravel-firebase": "^5.8",
         "laravel/framework": "^11.0",
         "laravel/jetstream": "^5.0",
         "laravel/sanctum": "^4.0",
@@ -26,7 +28,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Kreait\\Firebase\\": "vendor/kreait/firebase-php/src"
         }
     },
     "autoload-dev": {

@@ -11,12 +11,15 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/', [PostController::class, 'index'] )->name('posts.index');
+
+// Rutas de autenticación
+Route::middleware(['auth'])->group(function () {
+    // Rutas de usuario autenticado
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // Otras rutas que requieren autenticación
 });
 
 //Admin
