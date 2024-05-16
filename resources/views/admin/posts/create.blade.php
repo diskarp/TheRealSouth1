@@ -4,25 +4,50 @@
             <form action="/admin/posts" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <label for="title" class="block">Título</label>
+            <label for="title" class="block mb-3 mt-2">Título</label>
             <input class="border border-gray-200 mb-3 p-2 w-full rounded" name="title" id="title"/>
+            @error('title')
+                        <div class="text-red-500 text-xs">
+                            {{$message}}
+                        </div>
+                    @enderror
 
-           <label for="slug" class="block">Slug</label>
+           <label for="slug" class="block mb-3 mt-2">Slug</label>
            <input class="border border-gray-200 p-2 w-full rounded" name="slug"/>
+           @error('slug')
+                        <div class="text-red-500 text-xs">
+                            {{$message}}
+                        </div>
+                    @enderror
 
-           <label for="thumbnail" class="block">Imagen</label>
+           <label for="thumbnail" class="block mb-3 mt-2">Imagen</label>
            <input class="border border-gray-200 p-2 w-full rounded" name="thumbnail" type="file"/>
+           @error('thumbnail')
+                        <div class="text-red-500 text-xs">
+                            {{$message}}
+                        </div>
+                    @enderror
 
 
-           <label for="excerpt" class="block">Subtitulo</label>
+           <label for="excerpt" class="block mb-3 mt-2">Subtitulo</label>
             <textarea class="border border-gray-200 p-2 w-full rounded" name="excerpt"></textarea>
+            @error('excerpt')
+                        <div class="text-red-500 text-xs">
+                            {{$message}}
+                        </div>
+                    @enderror
 
-            <label for="body" class="block">Cuerpo</label>
-            <textarea class="border border-gray-200 p-2 w-full rounded" name="body"></textarea>
+            <label for="body" class="block mb-3 mt-2">Cuerpo</label>
+            <textarea class="editor-TinyMCE border border-gray-200 p-2 w-full rounded" id="body" name="body"></textarea>
+            @error('body')
+                        <div class="text-red-500 text-xs">
+                            {{$message}}
+                        </div>
+                    @enderror
 
 
             <div class="mt-6">
-                <label for="category" class="block">Categoría</label>
+                <label for="category" class="block mb-3 mt-2">Categoría</label>
 
                <select name="category_id" id="category_id" >
 
@@ -36,17 +61,25 @@
                </select>
 
                @error("category")
-                <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                <p class="text-red-500 text-xs">{{$message}}</p>
                 @enderror
 
             </div>
             <div class="mt-6">
-                <button class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 "type="submit">Publicar</button>
+                <button class="buttoncolor text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600 "type="submit">Publicar</button>
             </div>
 
 
 
             </form>
     </x-setting>
+    <script src="https://cdn.tiny.cloud/1/ka1edinw9l2vh0jrchkfhfemd3k8km99ymoqbunr208yeymu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
+    <script>
+        tinymce.init({
+          selector: 'textarea.editor-TinyMCE',
+          plugins: 'code table lists',
+          toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+        });
+      </script>
 @endsection

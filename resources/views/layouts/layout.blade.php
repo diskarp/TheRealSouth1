@@ -32,7 +32,7 @@
     .grey{
         background: black;
         width: 100%;
-        height: 33px;
+        height: 53px;
     }
 
     .buttoncolor{
@@ -46,21 +46,21 @@
     background: linear-gradient(to right, #8c52ff, #1bdaff);
     color: #fff;
     padding: 10px;
-    border-radius: 50%; /* Hace que el botón sea redondo */
+    border-radius: 50%;
     text-decoration: none;
-    display: none; /* Oculta el botón por defecto */
-    transition: background-color 0.3s; /* Agrega una transición suave */
+    display: none;
+    transition: background-color 0.3s;
 }
 
 .scroll-top-button.show {
-    display: block; /* Muestra el botón cuando sea necesario */
+    display: block;
 }
 
 .scroll-top-button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #0056b3;
 }
 
-/* Estilos para el ícono de flecha */
+
 .scroll-top-button i {
     font-size: 20px;
 }
@@ -72,29 +72,27 @@
             z-index: 9999;
             padding: 10px 20px;
 
-            animation: moveRight 20s linear infinite; /* Ajusta la duración y la velocidad de la animación según sea necesario */
+            animation: moveLeft 20s linear infinite;
         }
 
-
-        /* Estilos para los enlaces del banner */
         #bannerContent a {
     display: flex;
-    color: white; /* Color definido en las letras */
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
         #bannerContent a:hover {
-            color: #000000; /* Cambia el color al pasar el mouse sobre el enlace */
+            color: #8c52ff;
         }
 
-        /* Animación para mover el banner de izquierda a derecha */
-        @keyframes moveRight {
+
+        @keyframes moveLeft {
     0% {
-        transform: translateX(-100%);
+        transform: translateX(100%);
     }
     100% {
-        transform: translateX(calc(100% - 50px)); /* Movimiento hacia la derecha */
+        transform: translateX(calc(-100% + 50px));
     }
 }
 </style>
@@ -111,12 +109,21 @@
                 @php
                     use App\Models\Post;
 
-                    // Obtener los últimos 6 posts ordenados por fecha de creación descendente
                     $latestPosts = Post::latest()->take(6)->get();
                 @endphp
 
+
+                <p class="flex items-center text-sm font-semibold text-white">
+                    <svg class="h-5 w-5 mr-1 text-red-500" width="10" height="10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    </svg>
+                <span>Las últimas noticias:</span>
+            </p>
+
                 @foreach($latestPosts as $post)
-                <a href="/posts/{{$post->slug}}" class="text-sm font-semibold hover:underline"> | {{ $post->title }} | </a>
+
+                <a href="/posts/{{$post->slug}}" class="text-sm font-semibold hover:underline"> | {{ $post->title }} </a>
+
                 @endforeach
 
             </div>
@@ -244,7 +251,7 @@
                         </div>
 
                         <button type="submit"
-                        class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
+                        class="transition-colors duration-300 buttoncolor mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                 >
                     Subscribete!
                 </button>

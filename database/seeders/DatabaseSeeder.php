@@ -15,26 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory(10)->create();
-
-
-
-        $user = User::factory()->create([
-            "name"=> "John Doe"
-        ]);
-
-        $user2 = User::factory()->create([
-            "name"=> "Carl Jones"
-        ]);
-
-
-        Post::factory()->count(5)->create([
-            "user_id"=> $user->id
-        ]);
-
-        Post::factory()->count(4)->create([
-            "user_id"=> $user2->id
-        ]);
 
         $category = Category::factory()->create([
             "name"=> "tecnologia",
@@ -51,17 +31,6 @@ class DatabaseSeeder extends Seeder
             "slug"=> "actualidad"
         ]);
 
-        Post::factory()->count(2)->create([
-            "category_id"=> $category->id
-        ]);
-
-        Post::factory()->count(3)->create([
-            "category_id"=> $category2->id
-        ]);
-
-        Post::factory()->count(4)->create([
-            "category_id"=> $category3->id
-        ]);
 
     }
 }
