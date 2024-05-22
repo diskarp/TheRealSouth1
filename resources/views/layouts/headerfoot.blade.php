@@ -13,7 +13,7 @@
         z-index: 2;
     }
     .colorss {
-        background: linear-gradient(to right, #8469f8, #ffffff);
+        background: linear-gradient(to right, #8469f8, #b296ff);
     }
     .buttoncolor {
         background: linear-gradient(to right, #8c52ff, #1bdaff);
@@ -60,19 +60,19 @@
 
     </div>
     </header>
-    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6 ">
         @yield('content')
     </main>
 
-    <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
+    <footer class="colorss rounded-xl text-center py-16 px-10 mt-16">
             <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
-            <h5 class="text-3xl">Todas las noticias que te interesan!</h5>
-            <div class="flex justify-center mt-3 mb-3">
+            <h5 class="text-3xl font-bold ">Todas las noticias que te interesan!</h5>
+            <div class="flex justify-center mt-5 mb-3">
                 <a href="/">
                     <img src="/images/logosm.png" alt="TRSB Logo" width="50" height="50">
                 </a>
             </div>
-            <p class="text-sm mt-3">No te llenaremos el correo con basura. No somos malos!</p>
+            <h6 class="mt-3 font-bold">No te llenaremos el correo con basura. No somos malos!</h6>
 
             <div class="mt-10">
                 <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">

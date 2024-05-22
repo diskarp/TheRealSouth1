@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
@@ -21,6 +22,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Otras rutas que requieren autenticación
 });
+
+Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
+
+
 
 //Admin
 
