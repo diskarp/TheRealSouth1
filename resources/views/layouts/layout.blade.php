@@ -68,18 +68,26 @@
             position: absolute;
             top: 0;
             left: 50px;
-            width: 100%;
+            width: 200%;
             z-index: 9999;
             padding: 10px 20px;
 
             animation: moveLeft 20s linear infinite;
+
         }
+        #bannerContent {
+    width: 100%; /* Ajustar el ancho del contenedor */
+}
 
         #bannerContent a {
-    display: flex;
+    display: inline-block; /* Cambiado a bloque para que cada título tenga su propia línea */
     color: white;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    margin-left: 10px; /* Espacio entre cada título */
+    white-space: nowrap; /* Evita el salto de línea */
+   /* overflow: hidden;  Oculta el texto que sobresale del contenedor */
+
 }
 
         #bannerContent a:hover {
@@ -92,7 +100,7 @@
         transform: translateX(100%);
     }
     100% {
-        transform: translateX(calc(-100% + 50px));
+        transform: translateX(-100%);
     }
 }
 </style>
@@ -102,33 +110,25 @@
 </div>
     <header class=" text-center  py-16 px-10  colorss" id="head">
 
-        <div id="banner">
-
-            <div id="bannerContent" class="flex justify-between">
-
-                @php
-                    use App\Models\Post;
-
-                    $latestPosts = Post::latest()->take(6)->get();
-                @endphp
-
-
-                <p class="flex items-center text-sm font-semibold text-white">
-                    <svg class="h-5 w-5 mr-1 text-red-500" width="10" height="10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <div id="banner-container">
+    <div id="banner">
+        <div id="bannerContent" class="flex justify-between">
+            @php
+                use App\Models\Post;
+                $latestPosts = Post::latest()->take(6)->get();
+            @endphp
+            <p class="flex items-center text-sm font-semibold text-white">
+                <svg class="h-5 w-5 mr-1 text-red-500" width="10" height="10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="9" />
-                    </svg>
-                <span>Las últimas noticias:</span>
+                </svg>
+                <span style="white-space: nowrap;">Las últimas noticias:</span>
             </p>
-
-                @foreach($latestPosts as $post)
-
-                <a href="/posts/{{$post->slug}}" class="text-sm font-semibold hover:underline"> | {{ $post->title }} </a>
-
-                @endforeach
-
-            </div>
-
+            @foreach($latestPosts as $post)
+            <a href="/posts/{{$post->slug}}" class="text-sm font-semibold hover:underline"> | {{ $post->title }} </a>
+            @endforeach
         </div>
+    </div>
+</div>
 
         <nav class="md:flex md:justify-between md:items-center">
 
@@ -149,13 +149,14 @@
                     </x-slot>
 
                     @if (auth()->user()->username == 'josepablillo28')
-                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')" >Dashboard</x-dropdown-item>
-                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')" >Panel de control</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">Hacer un post</x-dropdown-item>
 
                     @endif
 
-
-                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Log Out</x-dropdown-item>
+                    <x-dropdown-item href="/foro">El foro</x-dropdown-item>
+                    <x-dropdown-item href="/perfil/{{auth()->user()->name}}">Mi Perfil</x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Cerrar sesión</x-dropdown-item>
 
                     <form id="logout-form" action="/logout" method="post" class="hidden">
 

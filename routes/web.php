@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
@@ -23,7 +24,16 @@ Route::middleware(['auth'])->group(function () {
     // Otras rutas que requieren autenticación
 });
 
-Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
+Route::get('posts/{post:slug}/comments', [CommentController::class, 'store']);
+
+
+
+
+//Perfil
+
+Route::get('perfil/{name}', [UserController::class, 'show'])->name('perfil.show');
+
+
 
 
 
@@ -39,7 +49,6 @@ Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware([
     config('jetstream.auth_session'),
     'verified',
 ]);
-
 
 Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware([
     'auth:sanctum',
