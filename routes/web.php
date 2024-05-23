@@ -33,7 +33,8 @@ Route::get('posts/{post:slug}/comments', [CommentController::class, 'store']);
 
 Route::get('perfil/{name}', [UserController::class, 'show'])->name('perfil.show');
 
-
+Route::get('perfil/{name}/edit', [UserController::class, 'edit'])->name('perfil.edit');
+Route::put('perfil/{name}', [UserController::class, 'update'])->name('perfil.update');
 
 
 

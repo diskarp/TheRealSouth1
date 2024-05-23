@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
+use Illuminate\Support\Carbon;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -18,7 +19,10 @@ class UserFactory extends Factory
      * The current password being used by the factory.
      */
     protected static ?string $password;
-
+    protected $dates = [
+        'birthdate',
+        // Agrega aquí otros campos de fecha si los tienes
+    ];
     /**
      * Define the model's default state.
      *

@@ -46,19 +46,6 @@ class CommentController extends Controller
 
     }
 
-    public function storeForum(Request $request)
-    {
-        $request->validate([
-            'body' => 'required',
-        ]);
-
-        Comment::create([
-            'user_id' => auth()->id(),
-            'body' => $request->input('body'),
-        ]);
-
-        return back()->with('success', 'Comentario agregado con éxito.');
-    }
 
     /**
      * Display the specified resource.

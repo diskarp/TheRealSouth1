@@ -1,0 +1,65 @@
+@extends('layouts.headerfoot')
+@section('content')
+
+    <div class="bg-white shadow-lg rounded-lg p-6" style="width: 1000px;">
+        <h1 class="text-2xl font-bold mb-4">Editar Perfil</h1>
+        <form action="{{ route('perfil.update', ['name' => $user->name]) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700">Username</label>
+                <input type="text" name="username" id="username" value="{{ old('username', $user->username) }}" class="w-full p-2 border border-gray-300 rounded mt-1">
+                @error('username')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700">Nombre</label>
+                <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" class="w-full p-2 border border-gray-300 rounded mt-1">
+                @error('name')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700">Correo electrónico</label>
+                <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" class="w-full p-2 border border-gray-300 rounded mt-1">
+                @error('email')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="bio" class="block text-gray-700">Biografía</label>
+                <textarea name="bio" id="bio" rows="3" class="w-full p-2 border border-gray-300 rounded mt-1">{{ old('bio', $user->bio) }}</textarea>
+                @error('bio')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="birthdate" class="block text-gray-700">Fecha de nacimiento</label>
+                <input type="date" name="birthdate" id="birthdate" value="{{ old('birthdate', $user->birthdate ? \Carbon\Carbon::parse($user->birthdate)->format('Y-m-d') : '') }}" class="w-full p-2 border border-gray-300 rounded mt-1">
+                @error('birthdate')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="thumbnail" class="block text-gray-700">Foto de perfil</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="w-full p-2 border border-gray-300 rounded mt-1">
+                @error('thumbnail')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Actualizar Perfil</button>
+            </div>
+        </form>
+    </div>
+
+
+@endsection
