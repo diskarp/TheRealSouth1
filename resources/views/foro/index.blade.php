@@ -1,9 +1,18 @@
-@extends('layouts.headerfoot')
+@extends('layouts.layout')
 @section('content')
+
 <x-setting heading="Crear un nuevo Post">
 @auth
 
-    <ul class="border bg-gray-100 border-gray-200 p-6 rounded-xl">
+    <div class="colorss border-gray-200 p-6 rounded-xl">
+
+    <h1 class="font-bold text-xl">Bienvenid@s al foro de The Real South Blog</h1>
+
+    <p class="text-sm mt-2 ">No toleramos actitudes que puedan ofender a otros usuarios, usen el foro de manera oportuna y disfruten de la comunidad.</p>
+
+    </div>
+
+    <ul class="border bg-purple-100 border-gray-200 p-6 rounded-xl">
         @foreach($mensajes as $mensaje)
         @php
                 $red = mt_rand(0, 200);
@@ -41,7 +50,7 @@
         <div>
 
         </div>
-        <button class="buttoncolor text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl "type="submit">
+        <button class="buttoncolor text-white uppercase font-semibold text-xs py-2 px-10 mt-3 rounded-2xl "type="submit">
                         Comentar
                     </button>
     </form>

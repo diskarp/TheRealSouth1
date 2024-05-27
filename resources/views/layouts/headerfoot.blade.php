@@ -13,8 +13,8 @@
         z-index: 2;
     }
     .colorss {
-        background: linear-gradient(to right, #8469f8, #b296ff);
-    }
+    background: linear-gradient(to right, #8469f8, #FFFFFF);
+  }
     .buttoncolor {
         background: linear-gradient(to right, #8c52ff, #1bdaff);
     }
@@ -48,15 +48,17 @@
                 <a href="/" class="text-xs font-bold uppercase">Página principal</a>
 
                 <a href="#" class="buttoncolor ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                    Subscribe for Updates
+                    Suscribete!
                 </a>
             </div>
         </nav>
         <div class="flex flex-col justify-center items-center text-center">
         <h1 class="text-4xl title">
+        <a href="/">
             <img src="/images/logomed.png" width="350" height="350">
+            </a>
         </h1>
-        <h2 class="inline-flex mt-2 mb-6">By Jose Pablo</h2>
+
 
     </div>
     </header>
@@ -90,7 +92,7 @@
                         <button type="submit"
                                 class="transition-colors duration-300 buttoncolor mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                         >
-                            Subscribete!
+                            Subscríbete!
                         </button>
 
 

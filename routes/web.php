@@ -18,10 +18,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 // Rutas de autenticación
 Route::middleware(['auth'])->group(function () {
     // Rutas de usuario autenticado
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
+    Route::get('admin/posts', [AdminPostController::class, 'index']);
     // Otras rutas que requieren autenticación
 });
 

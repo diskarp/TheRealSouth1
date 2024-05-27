@@ -4,7 +4,7 @@
             @csrf
 
             <header class="flex items-center">
-                <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}"
+                <img src="{{asset('storage/' . auth()->user()->thumbnail)}}"
                      alt=""
                      width="40"
                      height="40"

@@ -1,6 +1,6 @@
 @extends('layouts.headerfoot')
 @section('content')
-    <x-setting heading="Manage Posts">
+    <x-setting heading="Administrar publicaciones">
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -24,12 +24,12 @@
 
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Published
+                            Publicado
                           </span>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="/admin/posts/{{$post->id}}/edit" class="text-blue-500 hover:text-blue-600">Edit</a>
+                          <a href="/admin/posts/{{$post->id}}/edit" class="text-blue-500 hover:text-blue-600">Editar</a>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -37,7 +37,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="text-xs text-gray-400">Delete</button>
+                                <button class="text-xs text-red-400">Eliminar</button>
 
                             </form>
 
@@ -46,7 +46,6 @@
 
                       @endforeach
 
-                      <!-- More people... -->
                     </tbody>
                   </table>
                 </div>
