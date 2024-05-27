@@ -72,7 +72,7 @@
             z-index: 9999;
             padding: 10px 20px;
 
-            animation: moveLeft 20s linear infinite;
+            animation: moveLeft 30s linear infinite;
 
         }
         #bannerContent {
@@ -169,12 +169,12 @@
 
 
                 @else
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                <a href="/register" class="text-xs font-bold uppercase">Registro</a>
+                <a href="/login" class="ml-6 text-xs font-bold uppercase">Iniciar sesión</a>
 
                 @endauth
                 <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                    Subscribete
+                    Suscribete
                 </a>
             </div>
         </nav>
@@ -206,8 +206,8 @@
                     <line x1="15" y1="11" x2="15" y2="11.01" />  <line x1="18" y1="13" x2="18" y2="13.01" /></svg>
             </a>
 
-            <a href="{{ route('posts.index', ['category' => 'actualidad']) }}" class="buttoncolor flex items-center rounded-full text-white uppercase py-3 px-6 mr-6 ml-6">
-                <span class="mr-2">Actualidad</span>
+            <a href="{{ route('posts.index', ['category' => 'curiosidades']) }}" class="buttoncolor flex items-center rounded-full text-white uppercase py-3 px-6 mr-6 ml-6">
+                <span class="mr-2">Curiosidades</span>
                 <svg class="h-8 w-8 text-gray-100"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
                   </svg>
@@ -254,7 +254,7 @@
                         <button type="submit"
                         class="transition-colors duration-300 buttoncolor mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                 >
-                    Subscribete!
+                    Suscribete!
                 </button>
 
                         <a href="#head" id="scrollTopButton" class="scroll-top-button">

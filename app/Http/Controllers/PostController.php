@@ -91,12 +91,6 @@ class PostController extends Controller
         ]);
     }
 
-    public function showforum(Post $post)
-    {
-        return view('foro.index', [
-            'post'=> $post
-        ]);
-    }
     /**
      * Show the form for editing the specified resource.
      */

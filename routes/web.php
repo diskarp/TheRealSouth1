@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MensajeController;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
@@ -71,3 +72,8 @@ Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->mi
     config('jetstream.auth_session'),
     'verified',
 ]);
+
+//Foro
+
+Route::get('/foro', [MensajeController::class, 'index'])->name('foro.index');
+Route::post('/foro', [MensajeController::class, 'store'])->name('foro.store');

@@ -42,38 +42,35 @@ class UserController extends Controller
     public function update(Request $request, $name)
     {
         // Validar los datos del formulario
-        $request->validate([
-            'username' => 'required|string|max:255|unique:users,username,' . Auth::id(),
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
-            'bio' => 'nullable|string|max:1000',
-            'thumbnail' => 'nullable|image|max:2048',
-            'birthdate' => 'nullable|date',
-        ]);
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'bio' => 'nullable|string|max:1000',
+        'thumbnail' => 'nullable|image|max:2048',
+        'birthdate' => 'nullable|date',
+    ]);
 
-        // Buscar el usuario por su nombre
-        $user = User::where('name', $name)->firstOrFail();
+    // Buscar el usuario por su nombre
+    $user = User::where('name', $name)->firstOrFail();
 
-        // Asegurarse de que el usuario autenticado puede actualizar este perfil
-        if (Auth::user()->name !== $user->name) {
-            abort(403);
-        }
-
-        // Actualizar los datos del usuario
-        $user->username = $request->input('username');
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->bio = $request->input('bio');
-        $user->birthdate = $request->input('birthdate');
-
-        if ($request->hasFile('thumbnail')) {
-            // Subir la nueva imagen de perfil
-            $path = $request->file('thumbnail')->store('thumbnails', 'public');
-            $user->thumbnail = $path;
-        }
-
-        $user->save();
-
-        return redirect()->route('perfil.show', ['name' => $user->name])->with('success', 'Perfil actualizado con éxito');
+    // Asegurarse de que el usuario autenticado puede actualizar este perfil
+    if (Auth::user()->name !== $user->name) {
+        abort(403);
     }
+
+    // Actualizar los datos del usuario
+    $user->name = $request->input('name');
+    $user->bio = $request->input('bio');
+    $user->birthdate = $request->input('birthdate');
+
+    if ($request->hasFile('thumbnail')) {
+        // Subir la nueva imagen de perfil
+        $path = $request->file('thumbnail')->store('profilephotos', 'public');
+        $user->thumbnail = $path;
+    }
+
+    // Guardar los cambios en la base de datos
+    $user->update();
+
+    return redirect()->route('perfil.show', ['name' => $user->name])->with('success', 'Perfil actualizado con éxito');
+}
 }
