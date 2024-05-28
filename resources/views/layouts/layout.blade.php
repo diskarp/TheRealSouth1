@@ -30,7 +30,7 @@
   .grey {
     background: black;
     width: 100%;
-    height: 53px;
+    height: 43px;
   }
 
   .buttoncolor {
@@ -64,46 +64,47 @@
   }
 
   #banner {
-    position: absolute;
-    top: 0;
-    left: 50px;
-    width: 200%;
-    z-index: 9999;
-    padding: 10px 20px;
-    animation: moveLeft 30s linear infinite;
-  }
+  position: absolute;
+  top: 0;
+  left: 0; /* Cambiado a 0 para evitar desbordamiento */
+  width: 100%; /* Cambiado a 100vw para que ocupe el ancho completo de la ventana */
+  z-index: 9999;
+  padding: 10px 20px;
+  overflow: hidden; /* Añadido para evitar desbordamiento */
+}
 
-  #bannerContent {
-    width: 100%;
-    /* Ajustar el ancho del contenedor */
-  }
+#bannerContent {
+  display: flex; /* Cambiado a flex para alineación horizontal */
+  align-items: center;
+  width: 200%; /* Asegura que el contenido se ajuste al ancho del contenedor */
+}
 
-  #bannerContent a {
-    display: inline-block;
-    /* Cambiado a bloque para que cada título tenga su propia línea */
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-    margin-left: 10px;
-    /* Espacio entre cada título */
-    white-space: nowrap;
-    /* Evita el salto de línea */
-    /* overflow: hidden;  Oculta el texto que sobresale del contenedor */
-  }
+#bannerContent a {
+  display: inline-block; /* Mantener inline-block */
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+/* Espacio entre cada título */
+  white-space: nowrap; /* Evita el salto de línea */
+}
 
-  #bannerContent a:hover {
-    color: #8c52ff;
-  }
+#bannerContent a:hover {
+  color: #8c52ff;
+}
 
-  @keyframes moveLeft {
-    0% {
-      transform: translateX(100%);
-    }
-
-    100% {
-      transform: translateX(-100%);
-    }
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#bannerContent {
+  animation: moveLeft 40s linear infinite;
+}
+
 </style>
 
 <body style="font-family: Open Sans, sans-serif">

@@ -5,7 +5,7 @@
 
         <h1 class="text-2xl font-bold mb-4">Perfil de {{ auth()->user()->name }}</h1>
         <div class="mb-2">
-        <img class="w-16 h-16 rounded-full object-cover mr-4 mb-3" src="{{asset('storage/profilephotos/' . auth()->user()->thumbnail)}}" alt="">
+        <img class="w-16 h-16 rounded-full object-cover mr-4 mb-3" src="{{asset('storage/' . auth()->user()->thumbnail)}}" alt="">
             <span class="text-gray-600">Username:</span>
             <span class="text-gray-800 font-medium">{{ auth()->user()->username }}</span>
         </div>

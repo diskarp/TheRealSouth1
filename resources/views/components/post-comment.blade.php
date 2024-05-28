@@ -3,7 +3,7 @@
 <article class="flex space-x-4">
 
     <div class="flex-shrink-0">
-        <img src="https://i.pravatar.cc/60?u={{$comment->id}}" class="rounded-xl" alt="" width="60" height="60">
+        <img src="{{asset('storage/' . auth()->user()->thumbnail)}}" class="w-16 h-16 rounded-full object-cover mr-4 mb-3" alt="" width="60" height="60">
     </div>
 
     <div>

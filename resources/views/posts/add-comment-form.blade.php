@@ -8,7 +8,7 @@
                      alt=""
                      width="40"
                      height="40"
-                     class="rounded-full">
+                     class="w-16 h-16 rounded-full object-cover mr-4 mb-3">
 
                 <h2 class="ml-4">¿Tienes algo que comentar sobre este post?</h2>
             </header>

@@ -14,15 +14,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 
 
-
-// Rutas de autenticación
-Route::middleware(['auth'])->group(function () {
-    // Rutas de usuario autenticado
-    Route::get('admin/posts', [AdminPostController::class, 'index']);
-    // Otras rutas que requieren autenticación
-});
-
-Route::get('posts/{post:slug}/comments', [CommentController::class, 'store']);
+Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
 
 
 
