@@ -149,7 +149,10 @@
         @auth
           <x-dropdown2>
             <x-slot name="trigger">
-              <button class="text-xs font-bold uppercase">Bienvenido, {{ auth()->user()->name }}!</button>
+              <button class="text-xs font-bold uppercase flex items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"  width="15" height="15" class="size-6 mr-2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+</svg>Bienvenido, {{ auth()->user()->name }}!
+</button>
             </x-slot>
 
             @if (auth()->user()->username == 'josepablillo28')

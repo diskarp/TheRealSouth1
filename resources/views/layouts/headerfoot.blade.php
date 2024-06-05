@@ -44,12 +44,16 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Página principal</a>
+            <div class="mt-8 md:mt-0 flex inline-block">
+                <a href="/" class="text-xs font-bold uppercase"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20" stroke-width="1.5" stroke="currentColor" class="size-6 mr-3 mt-2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+</svg>
+</a>
 
-                <a href="#" class="buttoncolor ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                    Suscribete!
-                </a>
+                <a href="#newsletter"
+          class="buttoncolor ml-3 rounded-full px-5 py-3 text-xs font-semibold uppercase text-white">
+          Suscríbete
+        </a>
             </div>
         </nav>
         <div class="flex flex-col justify-center items-center text-center">
@@ -79,24 +83,37 @@
             <div class="mt-10">
                 <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
 
-                    <form method="POST" action="#" class="lg:flex text-sm">
-                        <div class="lg:py-3 lg:px-5 flex items-center">
-                            <label for="email" class="hidden lg:inline-block">
-                                <img src="/images/mailbox-icon.svg" alt="mailbox letter">
-                            </label>
+                <form method="POST" action="/newsletter" class="text-sm lg:flex" id="newsletter">
+            @csrf
+          <div class="flex items-center lg:px-5 lg:py-3">
+            <label for="email" class="hidden lg:inline-block">
+              <img src="/images/mailbox-icon.svg" alt="mailbox letter">
+            </label>
 
-                            <input id="email" type="text" placeholder="Your email address"
-                                   class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
-                        </div>
+            <div>
+            <input id="email" name="email" type="text" placeholder="Pon tu correo aquí!"
+              class="py-2 pl-4 focus-within:outline-none lg:bg-transparent lg:py-0">
 
-                        <button type="submit"
-                                class="transition-colors duration-300 buttoncolor mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
-                        >
-                            Subscríbete!
-                        </button>
+              @error('email')
+                                   <span class="text-xs text-red-500">{{ $message }}</span>
+                               @enderror
+                               </div>
+          </div>
 
+          <button type="submit"
+            class="buttoncolor mt-4 rounded-full px-8 py-3 text-xs font-semibold uppercase text-white transition-colors duration-300 lg:ml-3 lg:mt-0">
+            Suscríbete!
+          </button>
 
-                    </form>
+          <a href="#head" id="scrollTopButton" class="scroll-top-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="h-6 w-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18" />
+            </svg>
+
+          </a>
+
+        </form>
                 </div>
             </div>
         </footer>

@@ -72,8 +72,10 @@ class MensajeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Mensaje $mensaje)
     {
-        //
+        $mensaje->delete();
+
+        return back()->with('success', 'Mensaje fuera!');
     }
 }

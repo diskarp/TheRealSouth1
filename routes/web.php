@@ -28,7 +28,7 @@ $mailchimp->setConfig([
 ]);
 try{
 
-    $response =  $mailchimp->lists->addListMember('f1203b629f',[
+    $mailchimp->lists->addListMember('f1203b629f',[
         'email_address'=> request('email'),
         'status' => 'subscribed'
     ]);
@@ -38,7 +38,7 @@ try{
 
   }catch (Exception $e){
       throw \Illuminate\Validation\ValidationException::withMessages([
-         'email' => 'This email could not be added to our newsletter list.'
+         'email' => 'No se puede añadir este correo :('
      ]);
   }
 
@@ -95,3 +95,8 @@ Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->mi
 
 Route::get('/foro', [MensajeController::class, 'index'])->name('foro.index');
 Route::post('/foro', [MensajeController::class, 'store'])->name('foro.store');
+Route::delete('/foro/{mensaje}', [MensajeController::class, 'destroy'])->name('mensaje.destroy');
+
+//Comentarios
+
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
