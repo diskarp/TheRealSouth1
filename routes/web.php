@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
@@ -16,8 +17,6 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
 
-
-Route::post('/newsletter', NewsletterController::class);
 
 Route::post('newsletter',function() {
 
