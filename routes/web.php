@@ -16,6 +16,9 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::post('posts/{post:slug}/comments', [CommentController::class, 'store']);
 
+
+Route::post('/newsletter', NewsletterController::class);
+
 Route::post('newsletter',function() {
 
     request()->validate(['email' => 'required|email']);
@@ -75,16 +78,7 @@ Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware([
     config('jetstream.auth_session'),
     'verified',
 ]);
-Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-]);
-Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-]);
+
 Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
