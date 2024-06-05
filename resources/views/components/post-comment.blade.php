@@ -17,14 +17,18 @@
 
     <div>
       <header class="mb-4">
-        <h3 class="font-bold">{{ $comment->author->username }}</h3>
-        <p class="text-xs">Posted <time>{{ $comment->created_at->format('F j, Y, g:i a') }}</time></p>
-
+        @if ($comment->author)
+          <h3 class="font-bold">{{ $comment->author->username }}</h3>
+          <p class="text-xs">Posted <time>{{ $comment->created_at->format('F j, Y, g:i a') }}</time></p>
+        @else
+          <h3 class="font-bold">Unknown Author</h3>
+          <p class="text-xs">Posted <time>{{ $comment->created_at->format('F j, Y, g:i a') }}</time></p>
+        @endif
       </header>
       <p>
         {{ $comment->body }}
       </p>
-      @if (auth()->user()->username == 'josepablillo28')
+      @if (auth()->check() && auth()->user()->username == 'josepablillo28')
         <form method="POST" action="{{ route('comments.destroy', $comment) }}">
           @csrf
           @method('DELETE')

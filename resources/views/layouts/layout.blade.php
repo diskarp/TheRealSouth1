@@ -241,9 +241,7 @@
     <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
     <h5 class="text-3xl font-bold">Todas las noticias que te interesan!</h5>
     <div class="mb-3 mt-5 flex justify-center">
-      <a href="#head">
-        <img src="./images/logosm.png" alt="TRSB Logo" width="50" height="50">
-      </a>
+
     </div>
     <h6 class="mt-3 font-bold">No te llenaremos el correo con basura. No somos malos!</h6>
 
@@ -282,6 +280,34 @@
 
         </form>
       </div>
+    </div>
+    <div class="mt-3 flex justify-center items-center">
+    <p>Y si nos das un buen  follow?</p>
+    </div>
+    <div class="mt-3 flex justify-center items-center">
+        <a href="https://www.instagram.com/diskarp/">
+    <img class="mr-3" src="./images/insta.png" alt="instagram logo"  width="30"
+          height="30">
+          </a>
+          <a href="https://www.twitch.tv/imdiskarp">
+          <img  class="mr-3" src="./images/twitch.png" alt="twitch logo"  width="30"
+          height="30">
+          </a>
+          <a href="https://open.spotify.com/intl-es/artist/0qfFcAYVhSMBYl7AH1Wzta?si=zquict8hSu2783lPKZ1dRA">
+          <img  class="mr-3" src="./images/spoti.png" alt="twitch logo"  width="30"
+          height="30">
+          </a>
+          <a href="https://www.threads.net/@diskarp?hl=es">
+          <img  class="mr-3" src="./images/threads.png" alt="threads logo"  width="30"
+          height="30">
+          </a>
+          <a href="https://www.youtube.com/@diskarp">
+          <img  class="mr-3" src="./images/youtube.png" alt="youtube logo"  width="30"
+          height="30">
+          </a>
+          <a href="{{route('aboutus')}}">
+          <img src="./images/logosm.png" alt="TRSB Logo" width="30" height="30">
+          </a>
     </div>
   </footer>
   </section>

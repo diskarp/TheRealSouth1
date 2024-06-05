@@ -12,25 +12,25 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function show($name)
+    public function show($username)
     {
 
 
         // Buscar el usuario por su nombre
-        $user = User::where('name', $name)->firstOrFail();
+        $user = User::where('username', $username)->firstOrFail();
 
         return view('perfil.show', [
             'user' => $user
         ]);
     }
 
-    public function edit($name)
+    public function edit($username)
     {
         // Buscar el usuario por su nombre
-        $user = User::where('name', $name)->firstOrFail();
+        $user = User::where('username', $username)->firstOrFail();
 
         // Asegurarse de que el usuario autenticado puede editar este perfil
-        if (Auth::user()->name !== $user->name) {
+        if (Auth::user()->username !== $user->username) {
             abort(403);
         }
 
@@ -39,7 +39,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, $name)
+    public function update(Request $request, $username)
     {
         // Validar los datos del formulario
     $request->validate([
@@ -50,10 +50,10 @@ class UserController extends Controller
     ]);
 
     // Buscar el usuario por su nombre
-    $user = User::where('name', $name)->firstOrFail();
+    $user = User::where('username', $username)->firstOrFail();
 
     // Asegurarse de que el usuario autenticado puede actualizar este perfil
-    if (Auth::user()->name !== $user->name) {
+    if (Auth::user()->username !== $user->username) {
         abort(403);
     }
 
@@ -71,6 +71,6 @@ class UserController extends Controller
     // Guardar los cambios en la base de datos
     $user->update();
 
-    return redirect()->route('perfil.show', ['name' => $user->name])->with('success', 'Perfil actualizado con éxito');
+    return redirect()->route('perfil.show', ['username' => $user->username])->with('success', 'Perfil actualizado con éxito');
 }
 }

@@ -50,10 +50,10 @@ return redirect('/')->with('success','Estás suscrito illo');
 
 //Perfil
 
-Route::get('perfil/{name}', [UserController::class, 'show'])->name('perfil.show');
+Route::get('perfil/{username}', [UserController::class, 'show'])->name('perfil.show');
 
-Route::get('perfil/{name}/edit', [UserController::class, 'edit'])->name('perfil.edit');
-Route::put('perfil/{name}', [UserController::class, 'update'])->name('perfil.update');
+Route::get('perfil/{username}/edit', [UserController::class, 'edit'])->name('perfil.edit');
+Route::put('perfil/{username}', [UserController::class, 'update'])->name('perfil.update');
 
 
 
@@ -100,3 +100,9 @@ Route::delete('/foro/{mensaje}', [MensajeController::class, 'destroy'])->name('m
 //Comentarios
 
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+//About Us
+
+Route::get('/aboutus', function () {
+    return view('layouts.aboutus');
+})->name('aboutus');

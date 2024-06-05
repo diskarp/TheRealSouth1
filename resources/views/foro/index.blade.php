@@ -21,7 +21,7 @@
                 $color = sprintf('#%02X%02X%02X', $red, $green, $blue);
             @endphp
             <li class="mb-2 @if($mensaje->user_id === auth()->id()) text-right @else text-left @endif">
-                    <strong style="color: {{ $color }}">{{ $mensaje->user->name }}:</strong> {{ $mensaje->cuerpo }}
+                    <strong style="color: {{ $color }}">{{ $mensaje->user->username }}:</strong> {{ $mensaje->cuerpo }}
                     <br>
                     <p class="text-xs text-gray-400">{{ $mensaje->created_at->format('d/m/Y H:i') }}</p>
                     @if (auth()->user()->username == 'josepablillo28')

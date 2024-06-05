@@ -3,7 +3,7 @@
 
     <div class="bg-white shadow-lg rounded-lg p-6" style="width: 1000px;">
         <h1 class="text-2xl font-bold mb-4">Editar Perfil</h1>
-        <form action="{{ route('perfil.update', ['name' => auth()->user()->name]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('perfil.update', ['username' => auth()->user()->username]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
