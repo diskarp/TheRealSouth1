@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style>
     .title {
@@ -39,7 +40,7 @@
     <header class=" text-center  py-8 px-10  colorss">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a href="/">
+                <a href="/" class="hidden md:block">
                     <img src="/images/logosm.png"  width="50" height="50">
                 </a>
             </div>
@@ -71,7 +72,7 @@
     </main>
 
     <footer class="colorss rounded-xl text-center py-16 px-10 mt-16">
-            <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
+
             <h5 class="text-3xl font-bold ">Todas las noticias que te interesan!</h5>
             <div class="flex justify-center mt-5 mb-3">
                 <a href="/">

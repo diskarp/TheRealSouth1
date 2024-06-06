@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <style>
@@ -139,7 +140,7 @@
 
       <div>
 
-        <a href="/">
+        <a href="/" class="hidden md:block">
           <img src="./images/logosm.png" alt="TRSB Logo" width="50" height="50">
         </a>
       </div>
@@ -189,56 +190,54 @@
         </a>
       </h1>
 
-      <div class="mt-6 flex">
-        <a href="{{ route('posts.index', ['category' => 'tecnologia']) }}"
-          class="buttoncolor ml-6 mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
-          <span class="mr-2">Tecnología</span>
-          <svg class="h-6 w-6 text-gray-100" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" />
-            <line x1="3" y1="10" x2="3" y2="16" />
-            <line x1="21" y1="10" x2="21" y2="16" />
-            <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
-            <line x1="8" y1="3" x2="9" y2="5" />
-            <line x1="16" y1="3" x2="15" y2="5" />
-            <line x1="9" y1="18" x2="9" y2="21" />
-            <line x1="15" y1="18" x2="15" y2="21" />
-          </svg>
-        </a>
-        <a href="{{ route('posts.index', ['category' => 'videojuegos']) }}"
-          class="buttoncolor ml-6 mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
-          <span class="mr-2">Videojuegos</span>
-          <svg class="h-8 w-8 text-gray-100" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" />
-            <rect x="2" y="6" width="20" height="12" rx="2" />
-            <path d="M6 12h4m-2 -2v4" />
-            <line x1="15" y1="11" x2="15" y2="11.01" />
-            <line x1="18" y1="13" x2="18" y2="13.01" />
-          </svg>
-        </a>
-
-        <a href="{{ route('posts.index', ['category' => 'curiosidades']) }}"
-          class="buttoncolor ml-6 mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
-          <span class="mr-2">Curiosidades</span>
-          <svg class="h-8 w-8 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-          </svg>
-
-        </a>
-      </div>
+      <div class="mt-6 flex flex-col md:flex-row">
+    <a href="{{ route('posts.index', ['category' => 'tecnologia']) }}"
+      class="buttoncolor mb-4 md:mb-0 md:ml-6 md:mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
+      <span class="mr-2">Tecnología</span>
+      <svg class="h-6 w-6 text-gray-100" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" />
+        <line x1="3" y1="10" x2="3" y2="16" />
+        <line x1="21" y1="10" x2="21" y2="16" />
+        <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
+        <line x1="8" y1="3" x2="9" y2="5" />
+        <line x1="16" y1="3" x2="15" y2="5" />
+        <line x1="9" y1="18" x2="9" y2="21" />
+        <line x1="15" y1="18" x2="15" y2="21" />
+      </svg>
+    </a>
+    <a href="{{ route('posts.index', ['category' => 'videojuegos']) }}"
+      class="buttoncolor mb-4 md:mb-0 md:ml-6 md:mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
+      <span class="mr-2">Videojuegos</span>
+      <svg class="h-8 w-8 text-gray-100" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" />
+        <rect x="2" y="6" width="20" height="12" rx="2" />
+        <path d="M6 12h4m-2 -2v4" />
+        <line x1="15" y1="11" x2="15" y2="11.01" />
+        <line x1="18" y1="13" x2="18" y2="13.01" />
+      </svg>
+    </a>
+    <a href="{{ route('posts.index', ['category' => 'curiosidades']) }}"
+      class="buttoncolor mb-4 md:mb-0 md:ml-6 md:mr-6 flex items-center rounded-full px-6 py-3 uppercase text-white">
+      <span class="mr-2">Curiosidades</span>
+      <svg class="h-8 w-8 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+      </svg>
+    </a>
+</div>
 
     </div>
 
   </header>
 
-  <main class="mx-auto mt-6 max-w-6xl space-y-6 lg:mt-20">
+  <main class="lg:mr-3 lg:ml-3 md:ml3 md:mr-3 mt-6 space-y-6 lg:mt-20">
     @yield('content')
   </main>
     <x-flash/>
   <footer class="colorss mt-16 rounded-xl px-10 py-16 text-center">
-    <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
+
     <h5 class="text-3xl font-bold">Todas las noticias que te interesan!</h5>
     <div class="mb-3 mt-5 flex justify-center">
 

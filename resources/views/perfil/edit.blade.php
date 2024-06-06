@@ -1,7 +1,7 @@
 @extends('layouts.headerfoot')
 @section('content')
 
-    <div class="bg-white shadow-lg rounded-lg p-6" style="width: 1000px;">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-full w-full md:w-2/3 lg:w-1/2 mx-auto">
         <h1 class="text-2xl font-bold mb-4">Editar Perfil</h1>
         <form action="{{ route('perfil.update', ['username' => auth()->user()->username]) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -42,7 +42,6 @@
             <div class="mb-4">
                 <label for="birthdate" class="block text-gray-700">Fecha de nacimiento</label>
                 <input type="date" name="birthdate" id="birthdate" value="{{ old('birthdate', auth()->user()->birthdate ? (new DateTime(auth()->user()->birthdate))->format('Y-m-d') : '') }}" class="w-full p-2 border border-gray-300 rounded mt-1">
-
                 @error('birthdate')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -57,10 +56,9 @@
             </div>
 
             <div class="flex justify-end">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Actualizar Perfil</button>
+            <button type="submit" class="buttoncolor text-white px-4 py-2 rounded">Actualizar Perfil</button>
             </div>
         </form>
     </div>
-
 
 @endsection
