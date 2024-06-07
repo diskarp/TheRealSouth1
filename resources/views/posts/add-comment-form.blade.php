@@ -28,7 +28,7 @@
                     name="body"
                     class="w-full text-sm focus:outline-none focus:ring"
                     rows="5"
-                    placeholder="Quick, thing of something to say!"
+                    placeholder="Piensa algo, corre!!!!!"
                     required></textarea>
 
                     @error("body")

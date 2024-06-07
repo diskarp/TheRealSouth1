@@ -1,7 +1,8 @@
 @extends('layouts.headerfoot')
 @section('content')
 
-    <div class="bg-white shadow-lg rounded-lg p-6 max-w-full w-full md:w-2/3 lg:w-1/2 mx-auto">
+<section class="py-8 max-w-4xl mx-auto">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-full w-full mx-auto">
         <h1 class="text-2xl font-bold mb-4">Editar Perfil</h1>
         <form action="{{ route('perfil.update', ['username' => auth()->user()->username]) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -60,5 +61,5 @@
             </div>
         </form>
     </div>
-
+    </section>
 @endsection

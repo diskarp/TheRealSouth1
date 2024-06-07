@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 
-<main class="sm:mr-3 sm:ml-3 mt-6 lg:mt-20 space-y-6 ">
+
 
     @if($posts->count() > 0)
     <x-post-featured-card :post="$posts[0]" />
@@ -19,6 +19,5 @@
     <p class="text-center">No posts yet. Please check back later</p>
     @endif
 
-</main>
 
 @endsection

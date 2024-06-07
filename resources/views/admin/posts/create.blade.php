@@ -73,7 +73,7 @@
 
             </form>
     </x-setting>
-    <script src="https://cdn.tiny.cloud/1/ka1edinw9l2vh0jrchkfhfemd3k8km99ymoqbunr208yeymu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/0kvx8nknnrhgwuwari448rul4067afztv86du23lqkmwayo6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
         tinymce.init({

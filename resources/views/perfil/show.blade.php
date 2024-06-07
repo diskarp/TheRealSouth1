@@ -1,7 +1,6 @@
 @extends('layouts.headerfoot')
 @section('content')
 @auth
-<main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
 
 <x-panel>
         <h1 class="text-2xl font-bold mb-4">Perfil de {{ auth()->user()->username }}</h1>
@@ -39,6 +38,6 @@
         <a href="{{ route('perfil.edit', ['username' => auth()->user()->username]) }}" class="buttoncolor text-white px-4 py-2 rounded inline-block mt-3">Editar Perfil</a>
 
  </x-panel>
-</main>
+
 @endauth
 @endsection
