@@ -31,7 +31,9 @@
                                                 Publicado
                                             </span>
                                         </td>
-
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <a href="{{route('admin.edit.post', $post->id )}}" class="text-blue-500 hover:text-blue-600">Edit</a>
+                        </td>
                                         <td class="px-4 py-4 sm:px-6 whitespace-nowrap text-right text-sm font-medium">
                                             <form action="/admin/posts/{{$post->id}}" method="post">
                                                 @csrf

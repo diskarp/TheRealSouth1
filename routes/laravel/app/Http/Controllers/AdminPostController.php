@@ -29,7 +29,7 @@ class AdminPostController extends Controller
         return redirect('/');
     }
 
-    public function edit(Post $post)
+   public function edit(Post $post)
     {
         return view('admin.posts.edit', ['post' => $post]);
     }
@@ -44,9 +44,8 @@ class AdminPostController extends Controller
 
         $post->update($attributes);
 
-        return redirect('admin/posts')->with('success', 'Post Updated!');
+        return redirect('admin/posts')->with('success', 'Post editado!');
     }
-
     public function destroy(Post $post)
     {
         $post->delete();

@@ -50,7 +50,7 @@
 
             <div class="mb-4">
                 <label for="thumbnail" class="block text-gray-700">Foto de perfil</label>
-                <input type="file" name="thumbnail" id="thumbnail" class="w-full p-2 border border-gray-300 rounded mt-1">
+                <input type="file" name="thumbnail" id="thumbnail" class="w-full p-2 border border-gray-300 rounded mt-1" value="{{ old('thumbnail', auth()->user()->thumbnail) }}">
                 @error('thumbnail')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
