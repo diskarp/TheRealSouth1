@@ -53,12 +53,12 @@ main {
     color: #fff;
     padding: 10px;
     border-radius: 50%;
-    /* Hace que el botón sea redondo */
+
     text-decoration: none;
     display: none;
-    /* Oculta el botón por defecto */
+
     transition: background-color 0.3s;
-    /* Agrega una transición suave */
+
   }
 
   .scroll-top-button.show {
@@ -177,20 +177,20 @@ main {
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Selecciona todos los enlaces internos que comienzan con #
+
     var links = document.querySelectorAll('a[href^="#"]');
 
-    // Agrega un listener de clic a cada enlace
+
     links.forEach(function(link) {
       link.addEventListener('click', function(event) {
-        // Previene el comportamiento predeterminado del enlace
+
         event.preventDefault();
 
-        // Obtiene el objetivo del enlace (el elemento al que se está enlazando)
+
         var targetId = this.getAttribute('href').substring(1);
         var targetElement = document.getElementById(targetId);
 
-        // Realiza el desplazamiento suave hasta el elemento objetivo
+
         targetElement.scrollIntoView({
           behavior: 'smooth'
         });
@@ -201,7 +201,7 @@ main {
   document.addEventListener('DOMContentLoaded', function() {
     var scrollTopButton = document.getElementById('scrollTopButton');
 
-    // Muestra u oculta el botón flotante en función de la posición de desplazamiento
+
     window.addEventListener('scroll', function() {
       if (window.scrollY > 100) {
         scrollTopButton.classList.add('show');
@@ -210,7 +210,7 @@ main {
       }
     });
 
-    // Vuelve al inicio de la página cuando se hace clic en el botón
+
     scrollTopButton.addEventListener('click', function(event) {
       event.preventDefault();
       window.scrollTo({

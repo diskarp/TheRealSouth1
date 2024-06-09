@@ -18,9 +18,6 @@ class PostController extends Controller
     {
         $query = Post::latest();
 
-
-
-        // Filtrar por categoría si se proporciona
         if ($request->has('category')) {
             $categorySlug = $request->category;
             $query->whereHas('category', function ($query) use ($categorySlug) {
@@ -28,7 +25,6 @@ class PostController extends Controller
             });
         }
 
-        // Filtrar por otros criterios como la búsqueda o el autor
         $query->filter($request->only(['search', 'author']));
 
         $posts = $query->paginate(6)->withQueryString();

@@ -19,7 +19,7 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 
-    public function author() //usamos el user_id ya que al haber llamado a la funcion author buscara algo relacionado con author
+    public function author() 
     {
         return $this->belongsTo(User::class, 'user_id');
     }
